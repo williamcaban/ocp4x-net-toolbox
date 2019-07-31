@@ -1,0 +1,13 @@
+FROM quay.io/fedora/fedora:31-x86_64
+
+RUN dnf install --setopt=tsflags=nodocs -y \
+    iproute bind-utils iputils iperf3 lksctp-tools rt-tests\
+    mtr tcpdump less tree && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf
+
+LABEL   io.k8s.display-name="Network Tools" \
+        io.k8s.description="Container with networking tools for tests" \
+        io.openshift.tags="nettools"
+
+ENTRYPOINT /bin/bash -c "sleep infinity"

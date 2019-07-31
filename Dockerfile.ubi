@@ -1,0 +1,19 @@
+FROM registry.access.redhat.com/ubi8/ubi
+
+# NOTE: If using plotnetcfg - https://access.redhat.com/solutions/3004681
+#RUN dnf install --setopt=tsflags=nodocs -y \
+#   https://mirror.dal.nexril.net/fedora-epel/7/x86_64/Packages/p/plotnetcfg-0.4.1-2.el7.x86_64.rpm graphviz
+
+# NOTE: Using the UBI image with some of these packages requires
+# building on a RHEL node with valid subscriptions
+RUN dnf install --setopt=tsflags=nodocs -y \
+    iproute bind-utils iputils iperf3 lksctp-tools rt-tests\
+    mtr tcpdump less tree && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf
+
+LABEL   io.k8s.display-name="Network Tools" \
+        io.k8s.description="Container with networking tools for tests" \
+        io.openshift.tags="nettools"
+
+ENTRYPOINT /bin/bash -c "sleep infinity"
