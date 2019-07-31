@@ -7,8 +7,8 @@ FROM registry.access.redhat.com/ubi8/ubi
 # NOTE: Using the UBI image with some of these packages requires
 # building on a RHEL node with valid subscriptions
 RUN dnf install --setopt=tsflags=nodocs -y \
-    iproute bind-utils iputils iperf3 lksctp-tools rt-tests\
-    mtr tcpdump less tree && \
+    iproute bind-utils iputils iperf3 lksctp-tools net-tools \
+    mtr tcpflow tcpdump uperf traceroute less tree && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 

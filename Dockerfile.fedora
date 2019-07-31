@@ -1,8 +1,8 @@
 FROM quay.io/fedora/fedora:31-x86_64
 
 RUN dnf install --setopt=tsflags=nodocs -y \
-    iproute bind-utils iputils iperf3 lksctp-tools rt-tests\
-    mtr tcpdump less tree && \
+    iproute bind-utils iputils iperf3 lksctp-tools rt-tests net-tools\
+    mtr tcpflow tcpdump less tree && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
