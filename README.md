@@ -16,7 +16,10 @@ podman build -t bastion.example.com:5000/poc/net-toolbox -f Dockerfile.fedora
 oc new-project multinetwork-configs
 ```
 
-- Update [multus-macvlan-config.yaml](multus-macvlan-config.yaml)
+- Update and create a NetworkAttachmentDefinition. Some examples are here:
+  - [multus-macvlan-config-local.yaml](multus-macvlan-config-local.yaml)
+  - [multus-macvlan-config-external-dhcp.yaml](multus-macvlan-config-external-dhcp.yaml)
+  - [multus-macvlan-config-route-override.yaml](multus-macvlan-config-route-override.yaml)
 
 ```
 oc create -f multus-macvlan-conf.yaml
