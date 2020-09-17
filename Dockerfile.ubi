@@ -27,5 +27,3 @@ LABEL   io.k8s.display-name="Network Tools" \
         io.openshift.tags="nettools"
 
 ENTRYPOINT /bin/bash -c "sleep infinity"
-#ENTRYPOINT /bin/bash 
-#ENTRYPOINT /usr/sbin/nginx -g 'daemon off;' 
