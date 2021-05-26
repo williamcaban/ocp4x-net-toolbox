@@ -9,7 +9,7 @@ RUN dnf install --setopt=tsflags=nodocs -y plotnetcfg \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
-RUN pip3 install yq
+#RUN pip3 install yq
 
 LABEL   io.k8s.display-name="Network Tools" \
         io.k8s.description="Container with networking tools for tests" \
