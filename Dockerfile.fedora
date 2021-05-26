@@ -1,10 +1,15 @@
-FROM quay.io/fedora/fedora:31-x86_64
+FROM quay.io/fedora/fedora:34-x86_64
 
-RUN dnf install --setopt=tsflags=nodocs -y \
-    iproute bind-utils iputils iperf3 lksctp-tools net-tools procps plotnetcfg \
-    mtr tcpflow tcpdump uperf traceroute nload less tree && \
+RUN dnf install --setopt=tsflags=nodocs -y plotnetcfg \
+    iproute bind-utils iputils iperf3 lksctp-tools net-tools procps \
+    mtr tcpdump uperf traceroute less tree nginx \
+    qperf git iputils nmap \
+    wget curl iperf3 iproute ethtool \
+    telnet ftp rsync socat httpd-tools mysql postgresql jq python36 && \
     dnf clean all && \
     rm -rf /var/cache/dnf
+
+RUN pip3 install yq
 
 LABEL   io.k8s.display-name="Network Tools" \
         io.k8s.description="Container with networking tools for tests" \
