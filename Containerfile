@@ -21,6 +21,7 @@ RUN dnf install --setopt=tsflags=nodocs -y \
     qperf git iputils nmap  \
     wget curl iperf3 iproute ethtool \
     telnet ftp rsync socat httpd-tools \
+    bcc-tools bpftrace xdp-tools bpftool \
     mysql postgresql jq python36 && \
     dnf -y update && \
     dnf clean all && \
