@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora:34-x86_64
+FROM quay.io/fedora/fedora:39-x86_64
 
 RUN dnf install --setopt=tsflags=nodocs -y plotnetcfg \
     iproute bind-utils iputils iperf3 lksctp-tools net-tools procps \
